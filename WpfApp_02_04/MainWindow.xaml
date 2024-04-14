@@ -4,9 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp_02_04"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <StackPanel Grid.Row="0" Margin="10">
+            <TextBox x:Name="SearchTextBox" Margin="0 0 0 5" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Введіть слово для пошуку"/>
+            <TextBox x:Name="ReplaceTextBox" Margin="0 0 0 5" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Введіть слово для заміни"/>
+            <Button Content="Замінити слова" Click="ReplaceWords_Click" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="3"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="10">
+            <TextBox x:Name="ResultTextBox" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Style="{StaticResource MaterialDesignTextBox}"/>
+        </StackPanel>
     </Grid>
 </Window>
