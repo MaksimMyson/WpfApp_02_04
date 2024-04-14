@@ -7,6 +7,55 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <Button Grid.Row="0" Content="Generate Numbers" Click="GenerateNumbersButton_Click" HorizontalAlignment="Left" Margin="5"/>
+
+        <TextBox Grid.Row="1" x:Name="SearchTextBox" Margin="5"/>
+
+        <TextBox Grid.Row="2" x:Name="ReplaceTextBox" Margin="5"/>
+
+        <Button Grid.Row="3" Content="Search and Replace" Click="SearchAndReplaceButton_Click" HorizontalAlignment="Left" Margin="5"/>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="5">
+            <TextBox x:Name="TextFilePathTextBox" Width="300" Margin="0,0,10,0"/>
+            <Button Content="Select Text File" Click="SelectTextFileButton_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Orientation="Horizontal" Margin="5">
+            <TextBox x:Name="ModerationFilePathTextBox" Width="300" Margin="0,0,10,0"/>
+            <Button Content="Select Moderation File" Click="SelectModerationFileButton_Click"/>
+        </StackPanel>
+
+        <Button Grid.Row="6" Content="Moderate File" Click="ModeratorButton_Click" HorizontalAlignment="Left" Margin="5"/>
+
+        <StackPanel Grid.Row="7" Orientation="Horizontal" Margin="5">
+            <TextBox x:Name="ReverseFilePathTextBox" Width="300" Margin="0,0,10,0"/>
+            <Button Content="Select File to Reverse" Click="ReverseFileButton_Click"/>
+        </StackPanel>
+
+        <Button Grid.Row="8" Content="Reverse File" Click="ReverseFileButton_Click" HorizontalAlignment="Left" Margin="5"/>
+
+        <StackPanel Grid.Row="9" Orientation="Horizontal" Margin="5">
+            <TextBox x:Name="NumberFilePathTextBox" Width="300" Margin="0,0,10,0"/>
+            <Button Content="Select Number File" Click="SelectNumberFileButton_Click"/>
+        </StackPanel>
+
+        <Button Grid.Row="10" Content="Analyze Number File" Click="AnalyzeFileButton_Click" HorizontalAlignment="Left" Margin="5"/>
+
+        <StackPanel Grid.Row="11" Orientation="Horizontal" Margin="5">
+            <TextBlock x:Name="PositiveCountTextBlock" Margin="0,0,10,0"/>
+            <TextBlock x:Name="NegativeCountTextBlock" Margin="0,0,10,0"/>
+            <TextBlock x:Name="TwoDigitCountTextBlock" Margin="0,0,10,0"/>
+            <TextBlock x:Name="FiveDigitCountTextBlock"/>
+        </StackPanel>
     </Grid>
 </Window>
