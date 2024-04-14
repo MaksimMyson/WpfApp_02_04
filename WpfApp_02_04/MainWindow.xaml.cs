@@ -1,24 +1,53 @@
-﻿using System.Text;
+﻿using System;
+using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfApp_02_04
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ReverseContent_Click(object sender, RoutedEventArgs e)
+        {
+            string filePath = FilePathTextBox.Text.Trim();
+
+            if (string.IsNullOrEmpty(filePath))
+            {
+                MessageBox.Show("Будь ласка, введіть шлях до файлу.");
+                return;
+            }
+
+            if (!File.Exists(filePath))
+            {
+                MessageBox.Show("Файл не існує.");
+                return;
+            }
+
+            string reversedContent = ReverseFileContent(filePath);
+
+            string newFilePath = $"{Path.GetDirectoryName(filePath)}\\Reversed_{Path.GetFileName(filePath)}";
+
+            try
+            {
+                File.WriteAllText(newFilePath, reversedContent);
+                MessageBox.Show($"Вміст файлу успішно перевернуто і збережено у файлі:\n{newFilePath}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Виникла помилка при збереженні файлу: {ex.Message}");
+            }
+        }
+
+        private string ReverseFileContent(string filePath)
+        {
+            string content = File.ReadAllText(filePath);
+            char[] charArray = content.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
         }
     }
 }
