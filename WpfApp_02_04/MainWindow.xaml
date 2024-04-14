@@ -7,6 +7,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <StackPanel Grid.Row="0" Margin="10">
+            <TextBox x:Name="InputTextBox" Margin="0 0 0 5" VerticalContentAlignment="Center" />
+            <Button Content="Додати" Click="AddButton_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
+            <TextBox x:Name="FilePathTextBox" Margin="0 0 10 0" VerticalContentAlignment="Center" />
+            <Button Content="Зберегти" Click="SaveButton_Click"/>
+            <Button Content="Завантажити" Click="LoadButton_Click"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="2" Margin="10">
+            <TextBox x:Name="ArrayContentTextBox" TextWrapping="Wrap" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+        </ScrollViewer>
     </Grid>
 </Window>
