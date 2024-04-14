@@ -4,49 +4,19 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        
-        <Grid Grid.Column="0" Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="10">
+            <TextBox x:Name="FilePathTextBox" Margin="0 0 0 5" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Шлях до файлу"/>
+            <Button Content="Переглянути" Click="BrowseButton_Click"/>
+        </StackPanel>
 
-            <StackPanel Grid.Row="0" Margin="0 0 0 10">
-                <TextBox x:Name="FilePathTextBox" Margin="0 0 0 5" materialDesign:HintAssist.Hint="Шлях до файлу" />
-                <Button Content="Переглянути файл" Click="ViewFileButton_Click" />
-            </StackPanel>
-
-            <TextBox x:Name="FileContentTextBox" Grid.Row="1" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
-        </Grid>
-
-        
-        <Grid Grid.Column="1" Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
-            <StackPanel Grid.Row="0" Margin="0 0 0 10">
-                <TextBox x:Name="ArrayTextBox" Margin="0 0 0 5" materialDesign:HintAssist.Hint="Масив" />
-                <Button Content="Зберегти масив" Click="SaveArrayButton_Click" />
-            </StackPanel>
-
-            <Button Grid.Row="1" Content="Завантажити масив" Click="LoadArrayButton_Click" Margin="0 10 0 0" />
-
-            <StackPanel Grid.Row="2" Margin="0 0 0 10">
-                <TextBox x:Name="SearchTextBox" Margin="0 0 0 5" materialDesign:HintAssist.Hint="Пошук" />
-                <Button Content="Пошук" Click="SearchButton_Click" />
-            </StackPanel>
-
-            <Button Grid.Row="3" Content="Статистика файлу" Click="GetFileStatisticsButton_Click" Margin="0 10 0 0" />
-        </Grid>
+        <ScrollViewer Grid.Row="1" Margin="10">
+            <TextBox x:Name="FileContentTextBox" TextWrapping="Wrap" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+        </ScrollViewer>
     </Grid>
 </Window>
 
